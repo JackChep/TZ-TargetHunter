@@ -1,0 +1,17 @@
+{
+    "name": "hex/example",
+    "version": "2.7.2",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App"
+        }
+    },
+    "authors": [
+        {
+            "name": "Evgeny"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.18"
+    }
+}
