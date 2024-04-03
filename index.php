@@ -14,7 +14,7 @@ $vk = new \App\VK($token, '5.131');
 
 $req = new \App\Request($vk, 'groups.getMembers', '123');
 
-echo $req->buildRequestParams();
+//echo $req->buildRequestParams();
 
 
 
