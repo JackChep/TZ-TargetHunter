@@ -12,7 +12,9 @@ $token = "1820c82b1820c82b1820c82bd61b3709d8118201820c82b7e216090594283c896abd4c
 
 $vk = new \App\VK($token, '5.131');
 
-$req = new \App\Request($vk, 'groups.getMembers', '123');
+$req = new \App\Request($vk, 'groups.getMembers', ['group_id' => 167742670]);
+
+$req->Request();
 
 //echo $req->buildRequestParams();
 

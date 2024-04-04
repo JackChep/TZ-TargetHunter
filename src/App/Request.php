@@ -9,11 +9,10 @@ class Request{
 
     private $methodName = false;
     private $connectVK = false;
-    private $idCommunity = false;
     private $params = [];
 
     
-    public function __construct($connectVK, $methodName, $idCommunity, $args = false)
+    public function __construct($connectVK, $methodName, $args = false)
     {
         
         if (is_array($args)) {
@@ -22,11 +21,11 @@ class Request{
 
         $this->connectVK = $connectVK;
         $this->methodName = $methodName;
-        $this->idCommunity = $idCommunity;
         
     }
 
-    public function buildRequestParams(){
+    public function buildRequestParams()
+    {
 
         $requestParams = [
             'v' => $this->connectVK->getVersion(),
@@ -60,7 +59,15 @@ class Request{
         return $this;
     }
 
+    public function Request(){
 
+        $request = self::URL_VK_API . $this->methodName . "?" . $this->buildRequestParams();
+
+        $request = file_get_contents($request);
+
+        $request = json_decode($request);
+
+    }
 
 
 
