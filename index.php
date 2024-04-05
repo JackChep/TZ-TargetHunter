@@ -14,10 +14,10 @@ $vk = new \App\VK($token, '5.131');
 
 $req = new \App\Request($vk, 'groups.getMembers', ['group_id' => 167742670]);
 
-$req->Request();
+echo "<pre>";
+$req = $req->Request();
 
-//echo $req->buildRequestParams();
 
-
+?>
 
 
