@@ -31,8 +31,6 @@ class Response{
             $this->items = !isset($data->items) ? false : $data->items;
         }
         
-        
-
         $this->count = !isset($data->count) ? false : $data->count;
 
         if (is_array($data) || !isset($data->items)) {

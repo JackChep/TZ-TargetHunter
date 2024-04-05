@@ -66,7 +66,7 @@ class Request{
         $request = file_get_contents($request);
         
         $request = json_decode($request);
-        //var_dump($request);
+        
         return new Response($request);
 
     }

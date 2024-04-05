@@ -2,8 +2,6 @@
 
 namespace App;
 
-//require '..\vendor\autoload.php';
-
 use MongoDB;
 
 class Mongo{
