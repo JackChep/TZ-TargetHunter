@@ -23,9 +23,14 @@ class Response{
             }
             $this->{$key} = $value;
         }
-        //echo isset($data->items);
-        //var_dump($this);
-        $this->items = !isset($data->items) ? false : $data->items;
+        if (is_array($data->items) || !is_array($data->items[0])) {
+            foreach ($data->items as $key => $value) {
+                $this->items[] = [$value];
+            }
+        }else{
+            $this->items = !isset($data->items) ? false : $data->items;
+        }
+        
         
 
         $this->count = !isset($data->count) ? false : $data->count;

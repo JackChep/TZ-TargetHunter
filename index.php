@@ -17,7 +17,14 @@ $req = new \App\Request($vk, 'groups.getMembers', ['group_id' => 167742670]);
 echo "<pre>";
 $req = $req->Request();
 
+$mongo = new \App\Mongo("mongodb://localhost:27017");
+$mongo->insertMany($req->items);
+//var_dump($req->items);
+echo "всёёёёёёёё";
 
 ?>
+
+<script>console.log(<?=json_encode($mongo)?>)</script>
+
 
 

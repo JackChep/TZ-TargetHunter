@@ -12,7 +12,7 @@ class Request{
     private $params = [];
 
     
-    public function __construct($connectVK, $methodName, $args = false)
+    public function __construct(\App\VK $connectVK, $methodName, $args = false)
     {
         
         if (is_array($args)) {
