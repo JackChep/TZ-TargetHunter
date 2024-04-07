@@ -92,6 +92,7 @@ class Request{
         $url = self::URL_VK_API . $methodName . "?" . $this->buildRequestParams($opt);
         
         //echo $request."<br>";
+        
         $request = file_get_contents($url);
         
         $request = json_decode($request);
@@ -129,14 +130,17 @@ class Request{
         <?php
 		$members_groups = 0;	
         $sd = 0;
+        $mongo = new \App\Mongo("mongodb://localhost:27017");
 		while($members_count > $members_groups){
 			//usleep(300000);	//задержка на 0.3 сек.
 			$answer = $this->getMembers25k($this->params['group_id'], $members_count);
             
 			if($answer->data){
-				//$new = explode(",",$answer->data);
+
 				$this->membersGroups = array_merge($this->membersGroups, $answer->data);
-				//второй раз определяем переменную, уже с новым массивом данных
+
+                $mongo->insertMany($answer->data);
+
 				$members_groups = count($this->membersGroups);
 			}
 			else{

@@ -20,9 +20,9 @@ $vk = new \App\VK($token, '5.131');
 // $req = $req->Request();
 
 //запрос execute
-//$req = new \App\Request($vk, 'execute', ["fields"=>"bdate,first_name",'group_id' => 50750585]);
+$req = new \App\Request($vk, 'execute', ["fields"=>"bdate,first_name",'group_id' => 50750585]);
 
-//$req = $req->devMethod();
+$req = $req->devMethod();
 
 
 //$mongo = new \App\Mongo("mongodb://localhost:27017");
