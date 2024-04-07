@@ -14,29 +14,30 @@ class Response{
     public function __construct($data)
     {
         $this->error = !isset($data->error) ? false : new Error($data->error);
-        
+        //var_dump($data);
         $data = $data->response;
-
-        foreach ($data as $key => $value) {
-            if (property_exists($this, $key)) {
-                continue;
+        if (is_array($data)){
+            foreach ($data as $key => $value) {
+                if (property_exists($this, $key)) {
+                    continue;
+                }
+                $this->{$key} = $value;
             }
-            $this->{$key} = $value;
         }
-        if (is_array($data->items) || !is_array($data->items[0])) {
-            foreach ($data->items as $key => $value) {
-                $this->items[] = [$value];
-            }
-        }else{
-            $this->items = !isset($data->items) ? false : $data->items;
-        }
-        
-        $this->count = !isset($data->count) ? false : $data->count;
-
         if (is_array($data) || !isset($data->items)) {
             $this->count = count($data);
             $this->data = $data;
+        }else{
+            if (is_array($data->items) || !is_array($data->items[0])) {
+                foreach ($data->items as $key => $value) {
+                    $this->items[] = [$value];
+                }
+            }else{
+                $this->items = !isset($data->items) ? false : $data->items;
+            }
         }
+        $this->count = !isset($data->count) ? false : $data->count;
+
 
     }
 
