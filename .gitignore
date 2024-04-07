@@ -2,3 +2,4 @@
 ## Composer
 #############
 /vendor/
+composer.lock
