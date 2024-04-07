@@ -2,7 +2,8 @@
 
 namespace App;
 
-class Request{
+class Request
+{
 
 
     const URL_VK_API = 'https://api.vk.com/method/';
