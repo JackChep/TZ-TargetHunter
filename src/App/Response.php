@@ -14,14 +14,14 @@ class Response{
     {
         $this->error = !isset($data->error) ? false : new Error($data->error);
         $data = $data->response;
-        if (is_array($data)){
-            foreach ($data as $key => $value) {
-                if (property_exists($this, $key)) {
-                    continue;
-                }
-                $this->{$key} = $value;
-            }
-        }
+        // if (is_array($data)){
+        //     foreach ($data as $key => $value) {
+        //         if (property_exists($this, $key)) {
+        //             continue;
+        //         }
+        //         $this->{$key} = $value;
+        //     }
+        // }
         if (is_array($data) || !isset($data->items)) {
             $this->count = count($data);
             $this->data = $data;
