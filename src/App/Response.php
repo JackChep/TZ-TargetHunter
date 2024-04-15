@@ -8,13 +8,11 @@ class Response{
     public $data = false;
     public $items = false;
     public $count = false;
-    private $extendedFields = [];
     public $error = false;
 
     public function __construct($data)
     {
         $this->error = !isset($data->error) ? false : new Error($data->error);
-        //var_dump($data);
         $data = $data->response;
         if (is_array($data)){
             foreach ($data as $key => $value) {

@@ -6,14 +6,12 @@ class VK{
 
     
     private $version = false;
-    private $lang = false;
     private $accessToken = false;
 
     
     public function __construct($accessToken = false, $version = false )
     {
         $this->version = $version;
-        //$this->lang = $lang;
         $this->accessToken = $accessToken;
     }
 
